@@ -1,0 +1,70 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  padding: 50px 0 0 0;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.navbar-toggle {
+  float: left;
+  margin-left: 15px;
+}
+
+@media (min-width: 0) {
+  .navbar-toggle {
+    display: block; /* force showing the toggle */
+  }
+}
+
+@media (min-width: 992px) {
+  body {
+    padding: 0;
+  }
+  .navbar {
+    right: auto;
+    background: none;
+    border: none;
+  }
+}
+
+.brick {
+  background: white;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33);
+  border-radius: 3px;
+  color: #333;
+  border: 1px solid #ddd; 
+}
+
+
+.brick .img {
+  width: 100%;
+  max-width: 100%;
+  display: block;
+}
+
+.brick h3, .brick h5 {
+  text-shadow: none;
+}
+
+.brick {
+  width: 221.2px;
+}
+.info {
+  padding: 15px;
+  color: #333;
+}
+.brick img {
+  margin: 0px;
+  padding: 0px;
+  display: block;
+}
+
+.brick a:hover {
+    text-decoration: none;
+}

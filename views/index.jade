@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  #bgimg(ng-if='!currTrend')
+    img(src='/images/bgImg.png', width='100%')
+  #bgimg(ng-if='currTrend')
+    #freewall.free-wall(ng-hide='!searched' the-freewall)
+      .brick(ng-repeat='tweetinfo in trendinfo' repeat-brick)
+        a(ng-href='{{tweetinfo.tweetUrl}}' target="_blank")
+          img(ng-src='{{tweetinfo.imageURL}}', width='100%')
+          .info
+            h5 {{tweetinfo.tweetText}}

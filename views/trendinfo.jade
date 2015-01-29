@@ -1,0 +1,60 @@
+extends layout
+
+block content
+  #freewall.free-wall(ng-hide='!searched')
+    .brick(ng-repeat='tweetinfo in trendinfo')
+      img(ng-src='{{tweetinfo.imageURL}}', width='100%')
+      .info
+        h5 {{tweetinfo.tweetText}}
+
+  //- freewall.free-wall
+  //-   each v in [1, 2, 3, 4, 5, 6, 7]
+  //-     .brick
+  //-       img(src='http://pbs.twimg.com/media/B8AxSjZCQAAm4y8.jpg', width='100%')
+  //-       .info
+  //-         h5 Some descriptions
+
+  //- #freewall.free-wall
+  //-   .brick
+  //-     img(src='http://pbs.twimg.com/media/B8AxSjZCQAAm4y8.jpg', width='100%')
+  //-     .info
+  //-       h5 Some descriptions
+  //-   .brick
+  //-     img(src='http://pbs.twimg.com/media/B8A59V-CEAA3l8e.jpg', width='100%')
+  //-     .info
+  //-       h5 Some descriptions
+  //-   .brick
+  //-     img(src='http://pbs.twimg.com/media/B8AxSjZCQAAm4y8.jpg', width='100%')
+  //-     .info
+  //-       h5 Some descriptions
+  //-   .brick
+  //-     img(src='http://pbs.twimg.com/media/B8A59V-CEAA3l8e.jpg', width='100%')
+  //-     .info
+  //-       h5 Some descriptions
+  //-   .brick
+  //-     img(src='http://pbs.twimg.com/media/B8A59V-CEAA3l8e.jpg', width='100%')
+  //-     .info
+  //-       h5 Some descriptions
+  //-   .brick
+  //-     img(src='http://pbs.twimg.com/media/B8AxSjZCQAAm4y8.jpg', width='100%')
+  //-     .info
+  //-       h5 Some descriptions
+  //-   .brick
+  //-     img(src='http://pbs.twimg.com/media/B8A59V-CEAA3l8e.jpg', width='100%')
+  //-     .info
+  //-       h5 Some descriptions
+
+  script(type='text/javascript').
+    var wall = new freewall("#freewall");
+    wall.reset({
+      selector: '.brick',
+      animate: true,
+      cellW: 200,
+      cellH: 'auto',
+      onResize: function() {
+        wall.fitWidth();
+      }
+    });
+    wall.container.find('.brick img').load(function() {
+      wall.fitWidth();
+    });

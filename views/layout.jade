@@ -1,0 +1,48 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/jasny-bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src='/javascripts/jquery.min.js')
+    script(src='/javascripts/bootstrap.min.js')
+    script(src='/javascripts/freewall.js')
+
+  body(ng-app='XTrends', ng-controller='MainCtrl')
+    .navmenu.navmenu-default.navmenu-fixed-left.offcanvas
+      a.navmenu-brand(href='#') {{searchedCountry}} Today Trends 
+      form.navbar-form(role='form', ng-submit="searchCountry()")
+        input#searchBar.form-control(type='text', placeholder='Search countries' ng-model="searchedCountry")
+      #alertinfo.alert.alert-danger(role="alert" ng-show="errorMsg")
+        strong Error! 
+        | {{errorMsg}}
+      ul.nav.navmenu-nav(ng-hide='!searchCountryOK')
+        li(ng-repeat='trend in trends')
+          a(href='#', ng-click="getTweets(trend.name)") {{trend.name}}
+      //- ul.nav.navmenu-nav
+      //-   each country in ['Worldwide', 'United States', 'Canada', 'Australia', 'United Kingdom', 'Japan']
+      //-     li.dropdown
+      //-       a.dropdown-toggle(href='#', ng-click="getTrends('#{country}');$event.preventDefault()", data-toggle='dropdown')
+      //-         | #{country}
+      //-         b.caret
+      //-       ul.dropdown-menu.navmenu-nav(ng-hide='!detected')
+      //-         li(ng-repeat='trend in trends')
+      //-           a(href='#', ng-click="getTweets(trend.name)") {{trend.name}}
+
+    .navbar.navbar-default.navbar-fixed-top
+      button.navbar-toggle(type='button', data-toggle='offcanvas', data-target='.navmenu', data-canvas='body')
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+    .container
+      .page-header
+        h1(ng-if='!currTrend') XTrends &#x2014 What's the fucking trends?
+        h1(ng-if='currTrend') {{currTrendName}}
+
+      block content
+
+    script(src='/javascripts/jasny-bootstrap.min.js')
+    script(src='/javascripts/angular.min.js')
+    script(src='/javascripts/getTrends.js')
+    
