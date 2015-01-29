@@ -13,5 +13,5 @@ Tell you what is the trends by the image wall with [Pinterest style layout](http
 #### Show a trend by image wall in Pinterest style
 ![trendImageWall](./screenshots/trendImageWall.png "trendImageWall")
 
-#### Resizeable trend Image wall  
+#### Resizeable trend image wall  
 ![trendImageWallResize](./screenshots/trendImageWallResize.png "trendImageWallResize")
